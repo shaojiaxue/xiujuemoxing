@@ -18,8 +18,6 @@
 
 &gt; 基于人类大脑三脑理论（本能脑、情绪脑、理智脑），重新理解人工智能的演进逻辑。从System 1到System 2，探索AI的未来形态。
 
-**[📖 阅读文章 →](https://shaojiaxue.github.io/xiujuemoxing/three_level_intelligent)**
-
 ---
 
 ### [中国智能驾驶行业趋势白皮书（2025）深度解读 →](https://shaojiaxue.github.io/xiujuemoxing/intelligent_drive_white_paper)
@@ -29,8 +27,6 @@
 **阅读时间：** 5分钟
 
 &gt; 智能驾驶行业现状。
-
-**[📖 阅读文章 →]((https://shaojiaxue.github.io/xiujuemoxing/intelligent_drive_white_paper)**
 
 ---
 
