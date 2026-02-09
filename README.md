@@ -10,7 +10,7 @@
 ## 🤖 AI技术
 
 
-### [AI的三重进化：从本能到智能](https://shaojiaxue.github.io/xiujuemoxing/three_level_intelligent)
+### [AI的三重进化：从本能到智能 →](https://shaojiaxue.github.io/xiujuemoxing/three_level_intelligent)
 
 **标签：** `人工智能` `神经科学` `深度思考`  
 **发布时间：** 2026年2月9日  
