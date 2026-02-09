@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>中国智能驾驶行业趋势白皮书（2025）深度解读</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .pulse-ring {
+            position: relative;
+        }
+        .pulse-ring::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #667eea;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+        .timeline-line {
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.15);
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .sticky-nav {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255,255,255,0.9);
+        }
+        .progress-bar {
+            transition: width 1s ease-out;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="smooth-scroll">
+
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 w-full z-50 sticky-nav border-b border-gray-100 hidden" id="navbar">
+        <div class="max-w-lg mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-sm font-bold text-gray-800">智能驾驶白皮书解读</div>
+            <div class="flex space-x-4 text-xs">
+                <a href="#overview" class="text-gray-600 hover:text-purple-600">概览</a>
+                <a href="#trends" class="text-gray-600 hover:text-purple-600">趋势</a>
+                <a href="#players" class="text-gray-600 hover:text-purple-600">格局</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 第一页：首屏大标题 -->
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden bg-white">
+        <!-- 背景装饰 -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-purple-100 rounded-full blur-3xl opacity-60 floating"></div>
+            <div class="absolute bottom-20 right-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-60 floating" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-indigo-100 rounded-full blur-2xl opacity-40 floating" style="animation-delay: 4s;"></div>
+        </div>
+
+        <div class="max-w-lg mx-auto text-center z-10 relative">
+            <div class="inline-block px-4 py-1 bg-purple-50 text-purple-700 rounded-full text-sm font-medium mb-6 border border-purple-100">
+                <i class="fas fa-car-side mr-2"></i>2025行业深度解读
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-black leading-tight mb-6 text-gray-900 tracking-tight">
+                智能驾驶<br>
+                <span class="gradient-text">从实验室到方向盘</span><br>
+                的产业化跃迁
+            </h1>
+            
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed font-light">
+                基于《中国智能驾驶行业趋势白皮书（2025）》<br>
+                <span class="text-sm text-gray-500 mt-2 block">
+                    用10分钟读懂：谁掌握了智驾话语权？<br>
+                    数据如何成为新燃料？商业模式迎来何种变革？
+                </span>
+            </p>
+
+            <div class="flex flex-col gap-3 w-full max-w-xs mx-auto">
+                <button onclick="scrollToContent()" class="bg-gray-900 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-2">
+                    开始阅读 <i class="fas fa-arrow-down animate-bounce"></i>
+                </button>
+                <div class="text-xs text-gray-400 mt-2">向下滚动查看完整解读</div>
+            </div>
+
+            <!-- 关键数据预览 -->
+            <div class="grid grid-cols-3 gap-4 mt-12 text-center">
+                <div class="p-3 bg-gray-50 rounded-xl">
+                    <div class="text-2xl font-bold text-purple-600">64%</div>
+                    <div class="text-xs text-gray-500 mt-1">L2渗透率</div>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-xl">
+                    <div class="text-2xl font-bold text-blue-600">3强</div>
+                    <div class="text-xs text-gray-500 mt-1">格局鼎立</div>
+                </div>
+                <div class="p-3 bg-gray-50 rounded-xl">
+                    <div class="text-2xl font-bold text-indigo-600">10%</div>
+                    <div class="text-xs text-gray-500 mt-1">NOA拐点</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 内容区域 -->
+    <div id="content-start" class="max-w-lg mx-auto px-6 pb-20">
+
+        <!-- 导读卡片 -->
+        <section class="mb-16 reveal" id="overview">
+            <div class="bg-gradient-to-br from-gray-50 to-white border border-gray-100 rounded-3xl p-8 card-shadow relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-purple-50 rounded-full -mr-10 -mt-10 opacity-50"></div>
+                <h2 class="text-2xl font-bold mb-4 text-gray-900 relative z-10">这份白皮书讲了什么？</h2>
+                <p class="text-gray-600 leading-relaxed mb-6 text-sm relative z-10">
+                    2025年，智能驾驶行业完成了从"技术浪漫期"到"商业化攻坚期"的硬着陆。资本不再为遥远的L4故事买单，
+                    <span class="font-semibold text-purple-700">"装车量即话语权"</span>成为铁律。
+                </p>
+                <div class="space-y-3 relative z-10">
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i class="fas fa-check text-purple-600 text-xs"></i>
+                        </div>
+                        <p class="text-sm text-gray-700">技术范式：AI大模型成为核心驱动力</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i class="fas fa-check text-purple-600 text-xs"></i>
+                        </div>
+                        <p class="text-sm text-gray-700">竞争格局："华元魔"三足鼎立形成</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i class="fas fa-check text-purple-600 text-xs"></i>
+                        </div>
+                        <p class="text-sm text-gray-700">商业模式：从卖硬件转向卖服务订阅</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第一章：行业现状 -->
+        <section class="mb-16 reveal">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-gray-900 text-white flex items-center justify-center font-bold text-lg">01</div>
+                <h2 class="text-2xl font-bold text-gray-900">行业现状：渗透率突破临界点</h2>
+            </div>
+
+            <div class="prose prose-gray max-w-none">
+                <p class="text-gray-700 leading-relaxed mb-6 text-base">
+                    2025年，智能驾驶不再是高端车的专属配置。就像智能手机从奢侈品变成日用品一样，
+                    <span class="bg-yellow-100 px-1 rounded">智驾功能正在快速下沉至10-20万元的主流价位车型</span>。
+                </p>
+
+                <!-- 数据可视化卡片 -->
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="stat-card bg-white border border-gray-100 rounded-2xl p-5 text-center">
+                        <div class="text-3xl font-black text-gray-900 mb-1 counter" data-target="64">0</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-2">L2级渗透率</div>
+                        <div class="w-full bg-gray-100 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-2 rounded-full progress-bar" style="width: 0%" data-width="64%"></div>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-2">每10辆新车6辆带智驾</p>
+                    </div>
+                    
+                    <div class="stat-card bg-white border border-gray-100 rounded-2xl p-5 text-center">
+                        <div class="text-3xl font-black text-gray-900 mb-1 counter" data-target="15.1">0</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider mb-2">城市NOA占比</div>
+                        <div class="w-full bg-gray-100 rounded-full h-2">
+                            <div class="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full progress-bar" style="width: 0%" data-width="15.1%"></div>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-2">321.9万辆搭载</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-xl mb-6">
+                    <p class="text-sm text-blue-900 font-medium mb-1">关键转折点</p>
+                    <p class="text-sm text-blue-800">
+                        城区NOA（城市导航辅助驾驶）前装渗透率预计在2025年底突破<span class="font-bold">10%</span>，
+                        这是技术从早期采用者走向大众市场的<span class="font-semibold">规模化拐点</span>。
+                    </p>
+                </div>
+
+                <p class="text-gray-700 leading-relaxed text-base">
+                    这意味着什么？简单说，智驾功能已经从"锦上添花"变成了"标配预期"。
+                    就像十年前倒车雷达从选配变成标配一样，<span class="font-semibold">不会智驾的汽车，正在失去竞争力</span>。
+                </p>
+            </div>
+        </section>
+
+        <!-- 第二章：竞争格局 -->
+        <section class="mb-16 reveal" id="players">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-gray-900 text-white flex items-center justify-center font-bold text-lg">02</div>
+                <h2 class="text-2xl font-bold text-gray-900">竞争格局："华元魔"三足鼎立</h2>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-6 text-base">
+                白皮书提出了一个行业共识：<span class="bg-purple-100 px-2 py-1 rounded font-semibold text-purple-900">"华元魔"</span>。
+                这三个字分别代表华为、元戎启行、Momenta——2025年城区NOA市场的三大主导力量。
+            </p>
+
+            <!-- 三巨头对比 -->
+            <div class="space-y-4 mb-8">
+                <!-- 华为 -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-lg transition-shadow">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-red-600">
+                                <i class="fas fa-server text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">华为</h3>
+                                <p class="text-xs text-gray-500">全栈解决方案提供商</p>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-red-50 text-red-700 px-3 py-1 rounded-full font-medium">技术派</span>
+                    </div>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        凭借ADS（自动驾驶系统）深度绑定问界、阿维塔等品牌，提供从芯片到算法的全栈能力，
+                        在高端市场占据主导地位。
+                    </p>
+                </div>
+
+                <!-- 元戎启行 -->
+                <div class="bg-white border-2 border-purple-200 rounded-2xl p-5 shadow-md relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-purple-600 text-white text-xs px-3 py-1 rounded-bl-xl font-bold">
+                        增长冠军
+                    </div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600">
+                                <i class="fas fa-rocket text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">元戎启行</h3>
+                                <p class="text-xs text-gray-500">第三方供应商新秀</p>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-purple-50 text-purple-700 px-3 py-1 rounded-full font-medium">数据派</span>
+                    </div>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-3">
+                        2025年10月市场份额达<span class="font-bold text-purple-700">38%</span>，位居第一。
+                        深度绑定长城、吉利等主流品牌走量车型，累计交付超20万套城区NOA。
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">增长2.7倍</span>
+                        <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">10月装车第一</span>
+                    </div>
+                </div>
+
+                <!-- Momenta -->
+                <div class="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-lg transition-shadow">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
+                                <i class="fas fa-brain text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Momenta</h3>
+                                <p class="text-xs text-gray-500">算法与数据双轮驱动</p>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-medium">量产派</span>
+                    </div>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        与上汽、比亚迪等巨头合作，在L2++领域布局广泛，与华为共同占据第三方供应商市场约八成份额。
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200">
+                <h4 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                    <i class="fas fa-lightbulb text-yellow-500"></i>
+                    为什么"装车量"等于话语权？
+                </h4>
+                <p class="text-sm text-gray-700 leading-relaxed">
+                    智驾系统的核心是AI大模型，而训练AI需要海量真实道路数据。
+                    <span class="font-semibold">车越多 → 数据越多 → 算法越聪明 → 体验越好 → 吸引更多车企合作</span>。
+                    这是一个赢者通吃的飞轮效应。
+                </p>
+            </div>
+        </section>
+
+        <!-- 第三章：技术演进 -->
+        <section class="mb-16 reveal" id="trends">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-gray-900 text-white flex items-center justify-center font-bold text-lg">03</div>
+                <h2 class="text-2xl font-bold text-gray-900">技术演进：AI大模型重塑智驾</h2>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-6 text-base">
+                2025年，智驾行业的技术范式发生了根本性转变。
+                <span class="bg-indigo-100 px-2 py-1 rounded">不再是"工程师写规则教车怎么开"，而是"AI大模型看人类开车视频自学"</span>。
+            </p>
+
+            <!-- 技术路线对比 -->
+            <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden mb-6">
+                <div class="bg-gray-50 px-5 py-3 border-b border-gray-200">
+                    <h3 class="font-bold text-gray-900">核心技术路线</h3>
+                </div>
+                <div class="p-5 space-y-4">
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-sm">VLA</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm mb-1">视觉-语言-动作大模型</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                让AI不仅能"看"路，还能理解交通规则文字、导航语音指令，像人类一样思考驾驶逻辑。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-100"></div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xs">世界<br>模型</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm mb-1">世界模型（World Model）</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                AI在脑中构建"虚拟世界"，能预测"如果我现在变道，旁边车会怎么反应"，提前规划更安全。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 数据闭环图示 -->
+            <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 text-white mb-6">
+                <h3 class="font-bold text-lg mb-4 text-center">数据飞轮：智驾的"永动机"</h3>
+                <div class="relative">
+                    <div class="flex flex-col items-center space-y-4">
+                        <div class="bg-white/10 backdrop-blur rounded-xl p-4 w-full text-center border border-white/20">
+                            <i class="fas fa-car text-2xl mb-2 text-blue-400"></i>
+                            <div class="text-sm font-semibold">车辆上路</div>
+                            <div class="text-xs text-gray-400">产生真实场景数据</div>
+                        </div>
+                        <i class="fas fa-arrow-down text-gray-500"></i>
+                        <div class="bg-white/10 backdrop-blur rounded-xl p-4 w-full text-center border border-white/20">
+                            <i class="fas fa-database text-2xl mb-2 text-green-400"></i>
+                            <div class="text-sm font-semibold">数据采集</div>
+                            <div class="text-xs text-gray-400">亿级里程场景库</div>
+                        </div>
+                        <i class="fas fa-arrow-down text-gray-500"></i>
+                        <div class="bg-white/10 backdrop-blur rounded-xl p-4 w-full text-center border border-white/20">
+                            <i class="fas fa-brain text-2xl mb-2 text-purple-400"></i>
+                            <div class="text-sm font-semibold">AI训练迭代</div>
+                            <div class="text-xs text-gray-400">模型性能提升</div>
+                        </div>
+                        <i class="fas fa-arrow-down text-gray-500"></i>
+                        <div class="bg-white/10 backdrop-blur rounded-xl p-4 w-full text-center border border-white/20">
+                            <i class="fas fa-cloud-upload-alt text-2xl mb-2 text-yellow-400"></i>
+                            <div class="text-sm font-semibold">OTA升级</div>
+                            <div class="text-xs text-gray-400">用户体验优化</div>
+                        </div>
+                    </div>
+                    <!-- 循环箭头 -->
+                    <div class="absolute -right-2 top-1/2 transform -translate-y-1/2 text-gray-600">
+                        <i class="fas fa-sync-alt text-3xl opacity-30"></i>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed text-base">
+                <span class="font-semibold text-red-600">关键洞察：</span>
+                数据闭环的效率，已超越算法模型本身，成为更核心的竞争力。
+                没有装车量的公司，算法将沦为"无源之水"，迅速落后。
+            </p>
+        </section>
+
+        <!-- 第四章：商业模式变革 -->
+        <section class="mb-16 reveal">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-gray-900 text-white flex items-center justify-center font-bold text-lg">04</div>
+                <h2 class="text-2xl font-bold text-gray-900">商业模式：从卖硬件到卖服务</h2>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-6 text-base">
+                特斯拉在2026年宣布取消FSD一次性买断，仅提供订阅模式。这敲响了行业警钟：
+                <span class="bg-orange-100 px-2 py-1 rounded">靠卖硬件赚钱的时代正在终结</span>。
+            </p>
+
+            <!-- 商业模式对比 -->
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="bg-gray-50 rounded-2xl p-5 border border-gray-200 opacity-70">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-box text-3xl text-gray-400 mb-2"></i>
+                        <h3 class="font-bold text-gray-700">传统模式</h3>
+                    </div>
+                    <ul class="text-xs text-gray-600 space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-times text-red-400"></i>
+                            一次性硬件销售
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-times text-red-400"></i>
+                            收入有天花板
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-times text-red-400"></i>
+                            成本难摊薄
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-5 border-2 border-purple-200 relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white text-xs px-3 py-1 rounded-full font-bold">
+                        新趋势
+                    </div>
+                    <div class="text-center mb-3">
+                        <i class="fas fa-sync text-3xl text-purple-600 mb-2"></i>
+                        <h3 class="font-bold text-gray-900">订阅模式</h3>
+                    </div>
+                    <ul class="text-xs text-gray-700 space-y-2">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            软件+服务持续付费
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            长期稳定现金流
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            用户生命周期价值高
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-yellow-50 border border-yellow-200 rounded-2xl p-5 mb-6">
+                <h4 class="font-bold text-yellow-900 mb-2 flex items-center gap-2">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    残酷现实：规模不经济陷阱
+                </h4>
+                <p class="text-sm text-yellow-800 leading-relaxed">
+                    白皮书提到："100万台车才能摊薄7纳米芯片上亿美元的流片成本"。
+                    如果仅靠卖硬件，供应商要么陷入无利可图的价格战，要么因定价过高被车企拒之门外。
+                    <span class="font-semibold">没有装车量，一切都是空谈。</span>
+                </p>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed text-base">
+                未来的智驾公司，更像是<span class="font-semibold">"汽车界的SaaS公司"</span>——
+                前期用合理价格（甚至微利）上车，后期通过持续的软件升级、功能激活、出行服务运营获得长期收入。
+            </p>
+        </section>
+
+        <!-- 第五章：幸存者特征 -->
+        <section class="mb-16 reveal">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-gray-900 text-white flex items-center justify-center font-bold text-lg">05</div>
+                <h2 class="text-2xl font-bold text-gray-900">穿越周期的五大生存法则</h2>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-6 text-base">
+                2022年后，智驾行业融资窗口收紧，大量明星初创公司黯然退场。
+                白皮书指出，能够穿越周期的幸存者，都具备以下<span class="font-semibold text-purple-700">五大特征</span>：
+            </p>
+
+            <div class="space-y-4">
+                <!-- 特征1 -->
+                <div class="flex gap-4 items-start bg-white border border-gray-100 rounded-xl p-4 card-shadow">
+                    <div class="feature-icon w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">数据闭环能力</h4>
+                        <p class="text-sm text-gray-600">构建从采集到训练再到部署的自动化飞轮，让算法越用越聪明。</p>
+                    </div>
+                </div>
+
+                <!-- 特征2 -->
+                <div class="flex gap-4 items-start bg-white border border-gray-100 rounded-xl p-4 card-shadow">
+                    <div class="feature-icon w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">技术与商业协同</h4>
+                        <p class="text-sm text-gray-600">不盲目追求炫技，选择的技术路线必须能落地、有性价比、可量产。</p>
+                    </div>
+                </div>
+
+                <!-- 特征3 -->
+                <div class="flex gap-4 items-start bg-white border border-gray-100 rounded-xl p-4 card-shadow">
+                    <div class="feature-icon w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">规模化交付经验</h4>
+                        <p class="text-sm text-gray-600">从实验室Demo到百万辆级交付，中间隔着工程化能力的鸿沟。</p>
+                    </div>
+                </div>
+
+                <!-- 特征4 -->
+                <div class="flex gap-4 items-start bg-white border border-gray-100 rounded-xl p-4 card-shadow">
+                    <div class="feature-icon w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">4</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">主流品牌绑定</h4>
+                        <p class="text-sm text-gray-600">与长城、吉利等年销百万辆级的车企深度绑定，确保数据源头。</p>
+                    </div>
+                </div>
+
+                <!-- 特征5 -->
+                <div class="flex gap-4 items-start bg-white border border-gray-100 rounded-xl p-4 card-shadow">
+                    <div class="feature-icon w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0">5</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-1">持续造血能力</h4>
+                        <p class="text-sm text-gray-600">在资本寒冬中，有量产订单带来的收入，比任何PPT都更有说服力。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 未来展望 -->
+        <section class="mb-16 reveal">
+            <div class="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 rounded-3xl p-8 text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-purple-500 rounded-full blur-3xl opacity-20 -mr-20 -mt-20"></div>
+                <div class="absolute bottom-0 left-0 w-48 h-48 bg-blue-500 rounded-full blur-3xl opacity-20 -ml-10 -mb-10"></div>
+                
+                <h2 class="text-2xl font-bold mb-4 relative z-10">2026-2027展望</h2>
+                <div class="space-y-4 relative z-10">
+                    <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                        <p class="text-sm text-gray-200">高速L3级自动驾驶将规模商用</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                        <p class="text-sm text-gray-200">城区L4开始试点商用</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-purple-400 rounded-full"></div>
+                        <p class="text-sm text-gray-200">无人干线物流小规模落地</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                        <p class="text-sm text-gray-200">Robotaxi进入无安全员运营阶段</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-white/20 relative z-10">
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        智能驾驶时代已来，但不再是所有玩家的盛宴。
+                        只有那些在技术理想与商业现实间找到平衡的公司，才能活到最后。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 结语 -->
+        <section class="text-center py-8 reveal">
+            <div class="inline-block p-4 bg-gray-50 rounded-full mb-4">
+                <i class="fas fa-quote-left text-2xl text-gray-400"></i>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto mb-6">
+                这份白皮书告诉我们：智能驾驶的竞争，本质上是<span class="font-semibold text-gray-900">数据、规模与商业化能力</span>的综合较量。
+                技术很重要，但让技术上车，让更多人用上，才是活下去的唯一法则。
+            </p>
+            <div class="text-xs text-gray-400">
+                基于《中国智能驾驶行业趋势白皮书（2025）》整理
+            </div>
+        </section>
+
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <button onclick="scrollToTop()" id="backToTop" class="fixed bottom-6 right-6 bg-gray-900 text-white w-12 h-12 rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center z-50 hover:scale-110">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 注册ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 滚动显示动画
+        const reveals = document.querySelectorAll('.reveal');
+        reveals.forEach((reveal, index) => {
+            gsap.fromTo(reveal, 
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: reveal,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    },
+                    delay: index % 3 * 0.1
+                }
+            );
+        });
+
+        // 数字增长动画
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const target = parseFloat(counter.getAttribute('data-target'));
+            const isDecimal = target % 1 !== 0;
+            
+            ScrollTrigger.create({
+                trigger: counter,
+                start: "top 80%",
+                onEnter: () => {
+                    gsap.to(counter, {
+                        innerHTML: target,
+                        duration: 2,
+                        snap: { innerHTML: isDecimal ? 0.1 : 1 },
+                        ease: "power2.out",
+                        onUpdate: function() {
+                            if (isDecimal) {
+                                counter.innerHTML = parseFloat(counter.innerHTML).toFixed(1) + '<span class="text-lg">%</span>';
+                            } else {
+                                counter.innerHTML = Math.round(counter.innerHTML) + '<span class="text-lg">%</span>';
+                            }
+                        }
+                    });
+                }
+            });
+        });
+
+        // 进度条动画
+        const progressBars = document.querySelectorAll('.progress-bar');
+        progressBars.forEach(bar => {
+            const width = bar.getAttribute('data-width');
+            ScrollTrigger.create({
+                trigger: bar,
+                start: "top 80%",
+                onEnter: () => {
+                    bar.style.width = width;
+                }
+            });
+        });
+
+        // 导航栏显示/隐藏
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.remove('hidden');
+                backToTop.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                navbar.classList.add('hidden');
+                backToTop.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+
+        function scrollToContent() {
+            document.getElementById('content-start').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 触摸滑动优化
+        let touchStartY = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        // 防止iOS橡皮筋效果导致的布局问题
+        document.body.addEventListener('touchmove', (e) => {
+            if (e.target.closest('.smooth-scroll')) return;
+        }, { passive: true });
+    </script>
+</body>
+</html>
